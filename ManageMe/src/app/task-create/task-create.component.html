@@ -12,14 +12,8 @@
       <input type="text" id="priority" [(ngModel)]="task.priority" name="priority" required>
     </div>
     <div>
-      <label for="state">State:</label>
-      <select id="state" [(ngModel)]="task.state" name="state">
-        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
-      </select>
-    </div>
-    <div>
       <label for="functionality">Assign to Functionality:</label>
-      <select id="functionality" [(ngModel)]="task.functionalityId" name="functionality">
+      <select id="functionality" [(ngModel)]="task.functionalityId" name="functionality" required>
         <option *ngFor="let functionality of functionalities" [value]="functionality.id">{{ functionality.name }}</option>
       </select>
     </div>

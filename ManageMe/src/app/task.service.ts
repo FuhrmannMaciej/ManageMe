@@ -32,10 +32,16 @@ export class TaskService {
     }
   }
 
-  deleteTask(taskId: number) {
-    const index = this.tasks.findIndex(func => func.id === taskId);
-    if (index > -1) {
-      this.tasks.splice(index, 1);
-    }
+  deleteTask(taskId: number): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const index = this.tasks.findIndex(func => func.id === taskId);
+      if (index > -1) {
+        this.tasks.splice(index, 1);
+        resolve();
+      } else {
+        reject(new Error('Task not found'));
+      }
+    });
   }
+  
 }

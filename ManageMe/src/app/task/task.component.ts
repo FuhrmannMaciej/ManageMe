@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Task } from '../models/task.model';
 import { Router } from '@angular/router';
 import { TaskService } from '../task.service';
+import { FilterByStatePipe } from '../filter-by-state.pipe';
 
 @Component({
   selector: 'app-task',
@@ -14,8 +15,8 @@ export class TaskComponent {
   constructor(
     private router: Router,
     private taskService: TaskService
-    ) {
-      this.tasks = this.taskService.getTasks();
+  ) {
+    this.tasks = this.taskService.getTasks();
   }
 
   createTask() {
@@ -27,14 +28,16 @@ export class TaskComponent {
   }
 
   deleteTask(task: Task) {
-    this.taskService.deleteTask(task.id);
+    this.taskService.deleteTask(task.id).then(() => {
+      this.tasks = this.tasks.filter(t => t.id !== task.id);
+    });
   }
 
   showTaskDetails(task: Task) {
     this.router.navigate(['/project', task.projectId, 'task', task.id]);
-    }
+  }
     
-    goBack() {
-      this.router.navigate(['/project']);
-    }
+  goBack() {
+    this.router.navigate(['/project']);
+  }
 }
