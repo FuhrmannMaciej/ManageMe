@@ -1,0 +1,20 @@
+<h2>Task Details</h2>
+
+<div *ngIf="task">
+  <p>Name: {{ task.name }}</p>
+  <p>Description: {{ task.description }}</p>
+  <p>Priority: {{ task.priority }}</p>
+  <p>State: {{ task.state }}</p>
+
+  <div *ngIf="functionality">
+    <h3>Assigned to Functionality:</h3>
+    <p>Name: {{ functionality.name }}</p>
+    <p>Description: {{ functionality.description }}</p>
+    <p>Priority: {{ functionality.priority }}</p>
+    <p>State: {{ functionality.state }}</p>
+  </div>
+
+</div>
+
+<button (click)="goBack()">Back</button>
+

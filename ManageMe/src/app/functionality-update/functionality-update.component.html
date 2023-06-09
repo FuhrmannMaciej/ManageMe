@@ -1,1 +1,24 @@
-<p>functionality-update works!</p>
+<form (ngSubmit)="updateFunctionality()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="updatedFunctionality.name" name="name">
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" [(ngModel)]="updatedFunctionality.description" name="description">
+    </div>
+    <div>
+      <label for="priority">Priority:</label>
+      <input type="text" id="priority" [(ngModel)]="updatedFunctionality.priority" name="priority">
+    </div>
+      <div>
+        <label for="state">State:</label>
+        <select id="state" [(ngModel)]="updatedFunctionality.state" name="state">
+          <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+        </select>
+      </div>
+    <button type="submit">Update Functionality</button>
+  </form>
+
+  <button (click)="goBack()">Back</button>
+  

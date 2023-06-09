@@ -19,15 +19,11 @@ export class FunctionalityComponent {
   }
 
   createFunctionality() {
-    const newFunctionality = new Functionality(3, 'New Functionality', 'New Description', 'Low', 'New Owner', 'To Do', 1);
-    this.functionalityService.createFunctionality(newFunctionality);
+    this.router.navigate(['/project', 1, 'functionality', 'create']);
   }
 
   updateFunctionality(functionality: Functionality) {
-    functionality.name = 'Updated Functionality';
-    functionality.description = 'Updated Description';
-    functionality.priority = 'Medium';
-    this.functionalityService.updateFunctionality(functionality);
+    this.router.navigate(['/project', functionality.projectId, 'functionality', functionality.id, 'update']);
   }
 
   deleteFunctionality(functionality: Functionality) {
@@ -36,9 +32,9 @@ export class FunctionalityComponent {
 
   showFunctionalityDetails(functionality: Functionality) {
     this.router.navigate(['/project', functionality.projectId, 'functionality', functionality.id]);
-    console.log('Name:', functionality.name);
-    console.log('Description:', functionality.description);
-    console.log('Priority:', functionality.priority);
-    console.log('Owner:', functionality.owner);
+    }
+
+    goBack() {
+      this.router.navigate(['/project']);
     }
   }

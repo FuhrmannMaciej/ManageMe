@@ -1,0 +1,30 @@
+<form (ngSubmit)="createTask()">
+    <div>
+      <label for="name">Name:</label>
+      <input type="text" id="name" [(ngModel)]="task.name" name="name" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input type="text" id="description" [(ngModel)]="task.description" name="description" required>
+    </div>
+    <div>
+      <label for="priority">Priority:</label>
+      <input type="text" id="priority" [(ngModel)]="task.priority" name="priority" required>
+    </div>
+    <div>
+      <label for="state">State:</label>
+      <select id="state" [(ngModel)]="task.state" name="state">
+        <option *ngFor="let state of states" [value]="state">{{ state }}</option>
+      </select>
+    </div>
+    <div>
+      <label for="functionality">Assign to Functionality:</label>
+      <select id="functionality" [(ngModel)]="task.functionalityId" name="functionality">
+        <option *ngFor="let functionality of functionalities" [value]="functionality.id">{{ functionality.name }}</option>
+      </select>
+    </div>
+    <button type="submit">Create Task</button>
+  </form>
+  
+  <button (click)="goBack()">Back</button>
+  

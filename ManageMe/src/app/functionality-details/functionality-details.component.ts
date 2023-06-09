@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Functionality } from '../models/functionality.model';
 import { FunctionalityService } from '../functionality.service';
 import { ActivatedRoute } from '@angular/router';
+import { Task } from '../models/task.model';
 
 @Component({
   selector: 'app-functionality-details',
@@ -17,5 +18,13 @@ export class FunctionalityDetailsComponent {
     ) {
       const functionalityIdParam = this.route.snapshot.paramMap.get('functionalityId');
       this.functionality = this.functionalityService.getFunctionality(functionalityIdParam ? +functionalityIdParam : 0);
+  }
+
+  goBack() {
+    window.history.back();
+  }
+  
+  getTasksForFunctionality(functionalityId: number): Task[] {
+    return this.functionalityService.getTasksForFunctionality(functionalityId);
   }
 }

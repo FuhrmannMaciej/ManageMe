@@ -1,28 +1,21 @@
-import { Functionality } from "./functionality.model";
-import { User } from "./user.model";
+import { State } from "./state.model";
 
 export class Task {
+    id: number;
     name: string;
     description: string;
     priority: string;
-    functionality: Functionality;
-    estimatedFinishTime: string;
-    state: string;
-    creationDate: Date;
-    startDate: Date;
-    finishDate: Date;
-    assignee: User;
+    functionalityId: number;
+    state: State;
+    projectId: number;
 
-    constructor(name: string, description: string, priority: string, functionality: Functionality, estimatedFinishTime: string, state: string, creationDate: Date, startDate: Date, finishDate: Date, assignee: User) {
+    constructor(id: number, name: string, description: string, priority: string, functionalityId: number, state: State, projectId: number) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.priority = priority;
-        this.functionality = functionality;
-        this.estimatedFinishTime = estimatedFinishTime;
+        this.functionalityId = functionalityId;
         this.state = state;
-        this.creationDate = creationDate;
-        this.startDate = startDate;
-        this.finishDate = finishDate;
-        this.assignee = assignee;
+        this.projectId = projectId;
     }
 }

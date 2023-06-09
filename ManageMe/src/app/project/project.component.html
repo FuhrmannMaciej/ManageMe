@@ -2,8 +2,14 @@
 
 <ul>
   <li *ngFor="let project of projects">
-    <a [routerLink]="['/project', project.id, 'functionality']">
-      {{ project.name }}
-    </a>
+    <label>{{ project.name }}</label>
+    <br>
+    <br>
+    <div>
+      <a [routerLink]="['/project', project.id, 'functionality']">Functionality</a>
+      <br>
+      <br>
+      <a [routerLink]="['/project', project.id, 'task']">Tasks</a>
+    </div>
   </li>
 </ul>

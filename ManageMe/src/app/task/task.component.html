@@ -1,3 +1,53 @@
-<!-- <h2>Task {{ taskId }}</h2>
+<h2>Tasks</h2>
 
-<p>Task Details: {{ taskDetails }}</p> -->
+<button class="create-task-btn" (click)="createTask()">Create Task</button>
+<br>
+<br>
+<button (click)="goBack()">Back</button>
+<br>
+<br>
+
+<div class="kanban-board">
+  <div class="kanban-column">
+    <h4>To Do</h4>
+    <ul>
+      <li *ngFor="let task of tasks | filterByState:'To Do'">
+        <span>{{ task.name }}</span>
+        <div class="task-buttons">
+          <button class="details-btn" (click)="showTaskDetails(task)">Details</button>
+          <button class="update-btn" (click)="updateTask(task)">Update</button>
+          <button class="delete-btn" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kanban-column">
+    <h4>In Progress</h4>
+    <ul>
+      <li *ngFor="let task of tasks | filterByState:'In Progress'">
+        <span>{{ task.name }}</span>
+        <div class="task-buttons">
+          <button class="details-btn" (click)="showTaskDetails(task)">Details</button>
+          <button class="update-btn" (click)="updateTask(task)">Update</button>
+          <button class="delete-btn" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="kanban-column">
+    <h4>Done</h4>
+    <ul>
+      <li *ngFor="let task of tasks | filterByState:'Done'">
+        <span>{{ task.name }}</span>
+        <div class="task-buttons">
+          <button class="details-btn" (click)="showTaskDetails(task)">Details</button>
+          <button class="update-btn" (click)="updateTask(task)">Update</button>
+          <button class="delete-btn" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
