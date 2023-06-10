@@ -1,0 +1,55 @@
+form {
+    margin-bottom: 20px;
+  }
+  
+  form div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  select {
+    width: 20%;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #45a049;
+  }
+  
+  button {
+    padding: 8px 16px;
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #f4f4f4;
+  }
+  
+  form div:last-child {
+    margin-top: 20px;
+  }
+  
+  button + button {
+    margin-left: 10px;
+  }
+  
